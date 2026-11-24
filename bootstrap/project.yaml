@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: argocd-test
+  namespace: argocd
+spec:
+  description: Progetto di test per App-of-Apps
+  sourceRepos:
+    - 'https://github.com/mariusdumitru5/argocd-test.git'
+  destinations:
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+    - namespace: web-app
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
