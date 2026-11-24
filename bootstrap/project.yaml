@@ -7,10 +7,13 @@ spec:
   description: Progetto di test per App-of-Apps
   sourceRepos:
     - 'https://github.com/mariusdumitru5/argocd-test.git'
+    - 'https://dl.gitea.com/charts/'
   destinations:
     - namespace: argocd
       server: https://kubernetes.default.svc
     - namespace: web-app
+      server: https://kubernetes.default.svc
+    - namespace: gitea
       server: https://kubernetes.default.svc
   clusterResourceWhitelist:
     - group: ''
